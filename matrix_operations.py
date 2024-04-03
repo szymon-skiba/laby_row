@@ -29,6 +29,5 @@ class MatrixMultiplier:
             s = 0
             for c in range(ncols):
                 s += A[i][c] * X[c][0]
-                # time.sleep(0.1)
             y.append(s)
         return y

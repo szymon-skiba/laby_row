@@ -38,14 +38,13 @@ def worker():
     while True:
         task = task_queue.get()
         if task is None:
-            # A None task is used to signal the worker to shut down.
-            task_queue.put(None)  # Put it back for other workers to read
+            task_queue.put(None)  
             break
         result = calculate_product(task)
         result_queue.put(result)
 
 if __name__ == '__main__':
-    num_workers = 4  # Default number of worker processes
+    num_workers = 100  # Default number of worker processes
     if len(sys.argv) > 1:
         try:
             num_workers = int(sys.argv[1])  # Allow dynamic setting of the number of workers

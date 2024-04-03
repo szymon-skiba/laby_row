@@ -28,18 +28,19 @@ def client(matrix, vector, num_tasks):
         task_queue.put(task)
 
     final_result = [None] * num_tasks
-    for _ in range(num_tasks):
+    for i in range(num_tasks):
+        
         order, partial_result = result_queue.get()
         final_result[order] = partial_result
 
     final_result = [item for sublist in final_result for item in sublist] if final_result[0] is not None else final_result
     print("Final result:", final_result)
 
-if __name__ == '__main__':
+def run_client():
 
-    num_tasks = 3
-    fnameA = "A2.dat"
-    fnameX = "X2.dat"
+    num_tasks = 100
+    fnameA = "A.dat"
+    fnameX = "X.dat"
     matrix = MatrixReader.read(fnameA)
     vector = MatrixReader.read(fnameX)
 
