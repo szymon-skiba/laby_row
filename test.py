@@ -12,7 +12,7 @@ for i in range(5):
     start = time.time()
     client.run_client()
     stop = time.time()
-    f.write(f"{tests[i][0]}x{tests[i][1]}: {stop-start}")
+    f.write(f"{tests[i][0]}x{tests[i][1]}: {stop-start}\n")
     
     
 f.close()
